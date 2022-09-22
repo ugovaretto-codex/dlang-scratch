@@ -12,6 +12,7 @@
 			"targetName": "wc.exe",
 			"targetType": "executable",
 			"mainSourceFile": "source/wc.d",
+			"dflags": ["-O3","-mcpu=native"],
 			"__comment": {
 				"dflags": ["-static"],
 				"lflags": ["-static", "-L/usr/local/lib"]
@@ -22,6 +23,7 @@
 			"targetName": "wc2.exe",
 			"targetType": "executable",
 			"mainSourceFile": "source/wc2.d",
+			"dflags": ["-O3","-mcpu=native"],
 			"__comment": {
 				"dflags": ["-static"],
 				"lflags": ["-static", "-L/usr/local/lib"]
