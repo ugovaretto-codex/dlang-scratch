@@ -2,7 +2,7 @@ import std.file;
 import std.stdio;
 import std.ascii;
 
-ulong countWords(char[] s)
+ulong countWords(char[] s) pure
 {
     ulong cnt = 0;
     ulong l =  s.length;
