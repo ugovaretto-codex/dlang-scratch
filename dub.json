@@ -1,0 +1,51 @@
+{
+	"authors": [
+		"Ugo Varetto"
+	],
+	"copyright": "Copyright © 2022, Ugo Varetto",
+	"description": "First D app",
+	"license": "proprietary",
+	"name": "d1",
+	"configurations": [ 
+		{
+			"name": "wc",
+			"targetName": "wc.exe",
+			"targetType": "executable",
+			"mainSourceFile": "source/wc.d",
+			"__comment": {
+				"dflags": ["-static"],
+				"lflags": ["-static", "-L/usr/local/lib"]
+			}
+		},
+		{
+			"name": "wc2",
+			"targetName": "wc2.exe",
+			"targetType": "executable",
+			"mainSourceFile": "source/wc2.d",
+			"__comment": {
+				"dflags": ["-static"],
+				"lflags": ["-static", "-L/usr/local/lib"]
+			}
+		},
+		{
+			"name": "wc3",
+			"targetName": "wc3.exe",
+			"targetType": "executable",
+			"mainSourceFile": "source/wc3.d",
+			"__comment": {
+				"dflags": ["-static"],
+				"lflags": ["-static", "-L/usr/local/lib"]
+			}
+		},
+		{
+			"name": "create",
+			"targetName": "create.exe",
+			"targetType": "executable",
+			"mainSourceFile": "source/create.d",
+			"__comment": {
+				"dflags": ["-static"],
+				"lflags": ["-static", "-L/usr/local/lib"]
+			}
+		}
+	]
+}
