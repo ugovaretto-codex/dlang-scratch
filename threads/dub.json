@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Ugo Varetto"
+	],
+	"copyright": "Copyright © 2022, Ugo Varetto",
+	"description": "Multithreading tests",
+	"license": "BSD-3-Clause",
+	"name": "threads"
+}

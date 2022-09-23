@@ -3,10 +3,23 @@ import std.stdio;
 import std.ascii;
 import std.range;
 
-static bool isBlankChar(dchar c) @safe pure nothrow @nogc
+void main(string[] args)
 {
-    //copied from isWhite implementation
-    return  c == ' ' || (c >= 0x09 && c <= 0x0D);
+    try {
+    auto f = File(args[1]);
+    ulong wordCount = 0;
+    ulong lineCount = 0;
+    char[] buf;
+    while (!f.eof)
+    {
+        f.readln(buf);
+        ++lineCount;
+        wordCount += countWords(buf); 
+    }
+    writeln(lineCount - 1, " ", wordCount);
+    } catch(Exception e) {
+        stderr.writeln("Error! ", e);
+    }
 }
 
 ulong countWords(char[] s) pure
@@ -37,21 +50,8 @@ ulong countWords(char[] s) pure
     return cnt;
 }
 
-void main(string[] args)
+static bool isBlankChar(dchar c) @safe pure nothrow @nogc
 {
-    try {
-    auto f = File(args[1]);
-    ulong wordCount = 0;
-    ulong lineCount = 0;
-    char[] buf;
-    while (!f.eof)
-    {
-        f.readln(buf);
-        ++lineCount;
-        wordCount += countWords(buf); 
-    }
-    writeln(lineCount - 1, " ", wordCount);
-    } catch(Exception e) {
-        stderr.writeln("Error! ", e);
-    }
+    //copied from isWhite implementation
+    return  c == ' ' || (c >= 0x09 && c <= 0x0D);
 }

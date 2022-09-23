@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/threads
+threads.so
+threads.dylib
+threads.dll
+threads.a
+threads.lib
+threads-test-*
+*.exe
+*.o
+*.obj
+*.lst
