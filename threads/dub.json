@@ -5,5 +5,7 @@
 	"copyright": "Copyright © 2022, Ugo Varetto",
 	"description": "Multithreading tests",
 	"license": "BSD-3-Clause",
-	"name": "threads"
+	"name": "threads",
+	"buildRequirements": ["allowWarnings"],
+	"dflags": ["-O3", "-mcpu=native"]
 }
