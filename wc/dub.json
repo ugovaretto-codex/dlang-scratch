@@ -1,11 +1,11 @@
-{
+{ 
 	"authors": [
 		"Ugo Varetto"
 	],
 	"copyright": "Copyright © 2022, Ugo Varetto",
-	"description": "First D app",
-	"license": "proprietary",
-	"name": "d1",
+	"description": "wc implementation",
+	"license": "BSD-3-Clause",
+	"name": "wc",
 	"configurations": [ 
 		{
 			"name": "wc",
@@ -24,31 +24,23 @@
 			"targetType": "executable",
 			"mainSourceFile": "source/wc2.d",
 			"dflags": ["-O3","-mcpu=native"],
-			"__comment": {
-				"dflags": ["-static"],
-				"lflags": ["-static", "-L/usr/local/lib"]
-			}
+			"versions": ["each"]
 		},
 		{
 			"name": "wc3",
 			"targetName": "wc3.exe",
 			"targetType": "executable",
 			"mainSourceFile": "source/wc3.d",
-			"dflags": ["-O3","-mcpu=native"],
-			"__comment": {
-				"dflags": ["-static"],
-				"lflags": ["-static", "-L/usr/local/lib"]
-			}
+			"dflags": ["-O3","-mcpu=native"], 
+			"__comment": ["-flto-binary=/usr/lib/llvm-14/lib/LLVMgold.so", "--flto=full"],
+			"__versions": ["isWhite"]
 		},
 		{
 			"name": "create",
 			"targetName": "create.exe",
+			"description": "Create text file with specified number of lines and words per line",
 			"targetType": "executable",
-			"mainSourceFile": "source/create.d",
-			"__comment": {
-				"dflags": ["-static"],
-				"lflags": ["-static", "-L/usr/local/lib"]
-			}
+			"mainSourceFile": "source/create.d"
 		}
 	]
 }
