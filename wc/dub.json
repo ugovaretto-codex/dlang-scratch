@@ -23,8 +23,8 @@
 			"targetName": "wc2.exe",
 			"targetType": "executable",
 			"mainSourceFile": "source/wc2.d",
-			"dflags": ["-O3","-mcpu=native"],
-			"versions": ["each"]
+			"dflags": ["-noboundscheck", "-O", "-mcpu=native"],
+			"versions": ["each", "split"]
 		},
 		{
 			"name": "wc3",

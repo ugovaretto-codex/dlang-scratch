@@ -22,12 +22,13 @@ void main(string[] args)
     }
 }
 
-ulong countWords(char[] s) pure
+static ulong countWords(const ref char[] s) pure nothrow @nogc
 {
     if (s.empty) return 0;
     ulong cnt = 0;
-    ulong l =  s.length;
-    ulong i = 0;
+    const ulong l =  s.length;
+    auto p = &s[0];
+    const auto e = p + l;
     version(isWhite)
     {
         alias isBlank = isWhite;
@@ -36,16 +37,16 @@ ulong countWords(char[] s) pure
     {
         alias isBlank = isBlankChar;
     }
-    while (i < l)
+    while (p < e)
     {
         //advance to next non blank char or end
-        while (i < l && isBlank(s[i++])) {}
-        if (i >= l) break;
+        while (p < e && isBlank(*p)) {++p;}
+        if (p >= e) break;
         //found word -> increment counter
         ++cnt;
         //advance to next blank char or end
-        while (i < l && !isBlank(s[i++])) {}
-        if (i >= l) break;
+        while (p < e && !isBlank(*p)) {++p;}
+        if (p >= e) break;
     }
     return cnt;
 }

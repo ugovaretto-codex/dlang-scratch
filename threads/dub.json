@@ -5,7 +5,30 @@
 	"copyright": "Copyright © 2022, Ugo Varetto",
 	"description": "Multithreading tests",
 	"license": "BSD-3-Clause",
-	"name": "threads",
-	"buildRequirements": ["allowWarnings"],
-	"dflags": ["-O3", "-mcpu=native"]
+	"name": "threads-tests",
+	"configurations": [
+		{
+			"name": "par-wc",
+			"description": "Parallel wc implementation",
+			"targetName": "par-wc.exe",
+			"targetType": "executable",
+			"platform": "linux-dmd",
+			"mainSourceFile": "source/par_wc.d",
+			"dflags": ["-O", "-mcpu=native"],
+			"buildRequirements": ["allowWarnings"]
+		},
+		{
+			"name": "par-wc-static",
+			"description": "Static parallel wc implementation",
+			"targetName": "par-wc-static.exe",
+			"targetType": "executable",
+			"mainSourceFile": "source/par_wc.d",
+			"dlags": ["-O3", "-mcpu=native"],
+			"buildRequirements": ["allowWarnings"],
+			"platform": "posix",
+			"dflags": ["-static"],
+			"lflags": ["-static", "-lz", "-lssl", "-lcrypto", "-ldl", "-L/usr/local/lib"],
+			"__comment": ["-L/usr/local/lib"] 
+		}
+	]
 }

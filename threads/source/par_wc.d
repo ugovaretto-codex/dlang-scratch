@@ -2,12 +2,13 @@ import std.stdio;
 import std.parallelism;
 import std.array;
 import core.thread;
+import std.exception;
 
 void main(string[] args)
 {
     try
     {
-        assert(args.length > 1);
+        enforce(args.length > 1, "Error: no file name specified");
         const ulong length = DirEntry(args[1]).size;
         const offset = length / 4;
         auto task0 = task!wc(args[1], 0, offset);
